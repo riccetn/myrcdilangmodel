@@ -115,7 +115,8 @@ public final class ClassInfoImpl extends AnnotationTargetImpl implements ClassIn
 			infos.addAll(superInterfaceInfo.methods());
 
 		for (final Method method : reflectionInstance.getDeclaredMethods())
-			infos.add(new MethodInfoImpl(method));
+			if (!method.isSynthetic())
+				infos.add(new MethodInfoImpl(method));
 
 		return Collections.unmodifiableCollection(infos);
 	}
