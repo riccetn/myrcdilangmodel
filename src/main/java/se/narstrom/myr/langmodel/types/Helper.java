@@ -10,8 +10,6 @@ import java.util.Collections;
 import java.util.List;
 
 import jakarta.enterprise.lang.model.types.Type;
-import jakarta.enterprise.lang.model.types.PrimitiveType;
-import jakarta.enterprise.lang.model.types.PrimitiveType.PrimitiveKind;
 
 public final class Helper {
 	private Helper() {
@@ -38,28 +36,7 @@ public final class Helper {
 		if (reflectionType.getType() == Void.TYPE)
 			return new VoidTypeImpl();
 		if (reflectionType.getType() instanceof Class<?> clazz && clazz.isPrimitive())
-			return new AnnotatedPrimitiveTypeImpl(reflectionType);
+			return new PrimitiveTypeImpl(reflectionType);
 		return new AnnotatedClassTypeImpl(reflectionType);
-	}
-
-	public static PrimitiveType.PrimitiveKind convertReflectionClassToCdiLangPrimitiveKind(
-			final Class<?> reflectionClazz) {
-		if (reflectionClazz == Boolean.TYPE)
-			return PrimitiveKind.BOOLEAN;
-		if (reflectionClazz == Byte.TYPE)
-			return PrimitiveKind.BYTE;
-		if (reflectionClazz == Short.TYPE)
-			return PrimitiveKind.SHORT;
-		if (reflectionClazz == Integer.TYPE)
-			return PrimitiveKind.INT;
-		if (reflectionClazz == Long.TYPE)
-			return PrimitiveKind.LONG;
-		if (reflectionClazz == Float.TYPE)
-			return PrimitiveKind.FLOAT;
-		if (reflectionClazz == Double.TYPE)
-			return PrimitiveKind.DOUBLE;
-		if (reflectionClazz == Character.TYPE)
-			return PrimitiveKind.CHAR;
-		throw new RuntimeException("Not a primitive");
 	}
 }
