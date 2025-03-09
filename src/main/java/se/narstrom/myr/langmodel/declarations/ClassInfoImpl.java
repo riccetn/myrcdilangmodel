@@ -5,6 +5,7 @@ import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.lang.reflect.RecordComponent;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -134,8 +135,12 @@ public final class ClassInfoImpl extends AnnotationTargetImpl<Class<?>> implemen
 
 	@Override
 	public Collection<RecordComponentInfo> recordComponents() {
-		// TODO Auto-generated method stub
-		return null;
+		final RecordComponent[] components = reflectionInstance.getRecordComponents();
+		final Collection<RecordComponentInfo> infos = new ArrayList<>(components.length);
+		for (final RecordComponent component : components) {
+			infos.add(new RecordComponentInfoImpl(component));
+		}
+		return Collections.unmodifiableCollection(infos);
 	}
 
 	@Override

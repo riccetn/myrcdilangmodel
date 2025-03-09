@@ -8,6 +8,7 @@ import jakarta.enterprise.lang.model.declarations.MethodInfo;
 import jakarta.enterprise.lang.model.declarations.RecordComponentInfo;
 import jakarta.enterprise.lang.model.types.Type;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
+import se.narstrom.myr.langmodel.types.Helper;
 
 public final class RecordComponentInfoImpl extends AnnotationTargetImpl<RecordComponent> implements RecordComponentInfo {
 	public RecordComponentInfoImpl(final RecordComponent reflectionInstance) {
@@ -41,7 +42,6 @@ public final class RecordComponentInfoImpl extends AnnotationTargetImpl<RecordCo
 
 	@Override
 	public Type type() {
-		// TODO Auto-generated method stub
-		return null;
+		return Helper.convertReflectionTypeToCdiLangModelType(reflectionInstance.getAnnotatedType());
 	}
 }
