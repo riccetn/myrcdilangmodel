@@ -8,6 +8,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
 
 import jakarta.enterprise.lang.model.declarations.ClassInfo;
@@ -50,7 +51,7 @@ public final class ClassInfoImpl extends AnnotationTargetImpl implements ClassIn
 		if (reflectionInstance == Object.class)
 			return List.of();
 
-		final Collection<FieldInfo> infos = new ArrayList<>();
+		final Collection<FieldInfo> infos = new HashSet<>();
 
 		final ClassInfo superInfo = superClassDeclaration();
 		if (superInfo != null)
@@ -105,7 +106,7 @@ public final class ClassInfoImpl extends AnnotationTargetImpl implements ClassIn
 		if (reflectionInstance == Object.class)
 			return List.of();
 
-		final Collection<MethodInfo> infos = new ArrayList<>();
+		final Collection<MethodInfo> infos = new HashSet<>();
 
 		final ClassInfo superInfo = superClassDeclaration();
 		if (superInfo != null)
