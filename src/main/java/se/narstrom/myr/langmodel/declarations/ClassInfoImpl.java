@@ -37,8 +37,6 @@ public final class ClassInfoImpl extends AnnotationTargetImpl implements ClassIn
 		final Collection<MethodInfo> infos = new ArrayList<>(constructors.length);
 
 		for (final Constructor<?> constructor : constructors) {
-			if (constructor.isSynthetic())
-				System.out.println("Skipping syntetic constructor " + constructor);
 			if (!constructor.isSynthetic())
 				infos.add(new MethodInfoImpl(constructor));
 		}

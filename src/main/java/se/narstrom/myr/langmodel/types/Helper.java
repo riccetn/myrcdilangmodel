@@ -39,7 +39,6 @@ public final class Helper {
 			return new VoidTypeImpl();
 		if (reflectionType.getType() instanceof Class<?> clazz && clazz.isPrimitive())
 			return new AnnotatedPrimitiveTypeImpl(reflectionType);
-		// System.out.println(reflectionType.getType());
 		return new AnnotatedClassTypeImpl(reflectionType);
 	}
 
