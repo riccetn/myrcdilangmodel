@@ -17,12 +17,9 @@ import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 import se.narstrom.myr.langmodel.types.Helper;
 import se.narstrom.myr.langmodel.types.TypeVariableImpl;
 
-public final class MethodInfoImpl extends AnnotationTargetImpl implements MethodInfo {
-	private final Executable reflectionInstance;
-
+public final class MethodInfoImpl extends AnnotationTargetImpl<Executable> implements MethodInfo {
 	public MethodInfoImpl(final Executable reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

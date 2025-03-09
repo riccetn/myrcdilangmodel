@@ -6,12 +6,9 @@ import jakarta.enterprise.lang.model.types.ArrayType;
 import jakarta.enterprise.lang.model.types.Type;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class ArrayTypeImpl extends AnnotationTargetImpl implements ArrayType {
-	private final AnnotatedArrayType reflectionInstance;
-
+public final class ArrayTypeImpl extends AnnotationTargetImpl<AnnotatedArrayType> implements ArrayType {
 	public ArrayTypeImpl(final AnnotatedArrayType reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

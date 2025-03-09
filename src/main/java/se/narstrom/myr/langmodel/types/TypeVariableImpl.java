@@ -9,12 +9,9 @@ import jakarta.enterprise.lang.model.types.Type;
 import jakarta.enterprise.lang.model.types.TypeVariable;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class TypeVariableImpl extends AnnotationTargetImpl implements TypeVariable {
-	private final java.lang.reflect.TypeVariable<?> reflectionInstance;
-
+public final class TypeVariableImpl extends AnnotationTargetImpl<java.lang.reflect.TypeVariable<?>> implements TypeVariable {
 	public TypeVariableImpl(final java.lang.reflect.TypeVariable<?> reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

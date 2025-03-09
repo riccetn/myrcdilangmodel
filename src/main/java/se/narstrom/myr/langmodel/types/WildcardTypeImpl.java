@@ -7,12 +7,9 @@ import jakarta.enterprise.lang.model.types.Type;
 import jakarta.enterprise.lang.model.types.WildcardType;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class WildcardTypeImpl extends AnnotationTargetImpl implements WildcardType {
-	private AnnotatedWildcardType reflectionInstance;
-
-	public WildcardTypeImpl(AnnotatedWildcardType reflectionInstance) {
+public final class WildcardTypeImpl extends AnnotationTargetImpl<AnnotatedWildcardType> implements WildcardType {
+	public WildcardTypeImpl(final AnnotatedWildcardType reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

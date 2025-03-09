@@ -22,12 +22,9 @@ import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 import se.narstrom.myr.langmodel.types.Helper;
 import se.narstrom.myr.langmodel.types.TypeVariableImpl;
 
-public final class ClassInfoImpl extends AnnotationTargetImpl implements ClassInfo {
-	private final Class<?> reflectionInstance;
-
+public final class ClassInfoImpl extends AnnotationTargetImpl<Class<?>> implements ClassInfo {
 	public ClassInfoImpl(final Class<?> reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

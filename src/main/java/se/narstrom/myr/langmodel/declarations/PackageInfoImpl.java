@@ -3,12 +3,9 @@ package se.narstrom.myr.langmodel.declarations;
 import jakarta.enterprise.lang.model.declarations.PackageInfo;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class PackageInfoImpl extends AnnotationTargetImpl implements PackageInfo {
-	private final Package reflectionInstance;
-
+public final class PackageInfoImpl extends AnnotationTargetImpl<Package> implements PackageInfo {
 	public PackageInfoImpl(final Package reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

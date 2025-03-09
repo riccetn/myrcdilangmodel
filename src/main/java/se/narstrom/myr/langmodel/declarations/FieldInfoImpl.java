@@ -9,12 +9,9 @@ import jakarta.enterprise.lang.model.types.Type;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 import se.narstrom.myr.langmodel.types.Helper;
 
-public final class FieldInfoImpl extends AnnotationTargetImpl implements FieldInfo {
-	private final Field reflectionInstance;
-
+public final class FieldInfoImpl extends AnnotationTargetImpl<Field> implements FieldInfo {
 	protected FieldInfoImpl(final Field reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

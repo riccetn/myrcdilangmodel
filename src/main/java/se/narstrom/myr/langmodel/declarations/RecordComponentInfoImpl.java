@@ -9,12 +9,9 @@ import jakarta.enterprise.lang.model.declarations.RecordComponentInfo;
 import jakarta.enterprise.lang.model.types.Type;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class RecordComponentInfoImpl extends AnnotationTargetImpl implements RecordComponentInfo {
-	private final RecordComponent reflectionInstance;
-
+public final class RecordComponentInfoImpl extends AnnotationTargetImpl<RecordComponent> implements RecordComponentInfo {
 	public RecordComponentInfoImpl(final RecordComponent reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

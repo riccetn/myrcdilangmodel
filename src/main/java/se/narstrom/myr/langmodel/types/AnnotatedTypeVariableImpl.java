@@ -10,12 +10,9 @@ import jakarta.enterprise.lang.model.types.Type;
 import jakarta.enterprise.lang.model.types.TypeVariable;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class AnnotatedTypeVariableImpl extends AnnotationTargetImpl implements TypeVariable {
-	private AnnotatedTypeVariable reflectionInstance;
-
+public final class AnnotatedTypeVariableImpl extends AnnotationTargetImpl<AnnotatedTypeVariable> implements TypeVariable {
 	protected AnnotatedTypeVariableImpl(final AnnotatedTypeVariable reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

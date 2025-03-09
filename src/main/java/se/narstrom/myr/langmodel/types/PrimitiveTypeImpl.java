@@ -5,12 +5,9 @@ import java.lang.reflect.AnnotatedType;
 import jakarta.enterprise.lang.model.types.PrimitiveType;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class PrimitiveTypeImpl extends AnnotationTargetImpl implements PrimitiveType {
-	private AnnotatedType reflectionInstance;
-
-	protected PrimitiveTypeImpl(final AnnotatedType reflectionInstance) {
+public final class PrimitiveTypeImpl extends AnnotationTargetImpl<AnnotatedType> implements PrimitiveType {
+	public PrimitiveTypeImpl(final AnnotatedType reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

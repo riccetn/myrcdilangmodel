@@ -9,10 +9,10 @@ import java.util.function.Predicate;
 import jakarta.enterprise.lang.model.AnnotationInfo;
 import jakarta.enterprise.lang.model.AnnotationTarget;
 
-public abstract class AnnotationTargetImpl implements AnnotationTarget {
-	private final AnnotatedElement reflectionInstance;
+public abstract class AnnotationTargetImpl<E extends AnnotatedElement> implements AnnotationTarget {
+	protected final E reflectionInstance;
 
-	protected AnnotationTargetImpl(final AnnotatedElement reflectionInstance) {
+	protected AnnotationTargetImpl(final E reflectionInstance) {
 		this.reflectionInstance = reflectionInstance;
 	}
 

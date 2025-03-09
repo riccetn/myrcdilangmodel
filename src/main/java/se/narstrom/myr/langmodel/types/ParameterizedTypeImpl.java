@@ -11,12 +11,9 @@ import jakarta.enterprise.lang.model.types.ParameterizedType;
 import jakarta.enterprise.lang.model.types.Type;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 
-public final class ParameterizedTypeImpl extends AnnotationTargetImpl implements ParameterizedType {
-	private AnnotatedParameterizedType reflectionInstance;
-
+public final class ParameterizedTypeImpl extends AnnotationTargetImpl<AnnotatedParameterizedType> implements ParameterizedType {
 	public ParameterizedTypeImpl(final AnnotatedParameterizedType reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override

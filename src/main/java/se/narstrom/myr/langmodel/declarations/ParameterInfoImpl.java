@@ -8,12 +8,9 @@ import jakarta.enterprise.lang.model.types.Type;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 import se.narstrom.myr.langmodel.types.Helper;
 
-public final class ParameterInfoImpl extends AnnotationTargetImpl implements ParameterInfo {
-	private final Parameter reflectionInstance;
-
+public final class ParameterInfoImpl extends AnnotationTargetImpl<Parameter> implements ParameterInfo {
 	public ParameterInfoImpl(final Parameter reflectionInstance) {
 		super(reflectionInstance);
-		this.reflectionInstance = reflectionInstance;
 	}
 
 	@Override
