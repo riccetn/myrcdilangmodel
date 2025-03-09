@@ -35,9 +35,14 @@ public final class AnnotationInfoImpl implements AnnotationInfo {
 	@Override
 	public AnnotationMember member(final String name) {
 		try {
-			for (final Method method : reflectionType.getClass().getDeclaredMethods()) {
+			for (final Method method : reflectionType.annotationType().getDeclaredMethods()) {
 				if (name.equals(method.getName())) {
-					return new AnnotationMemberImpl(method.invoke(reflectionType));
+					method.setAccessible(true);
+					try {
+						return new AnnotationMemberImpl(method.invoke(reflectionType));
+					} finally {
+						method.setAccessible(false);
+					}
 				}
 			}
 			return null;
@@ -50,7 +55,7 @@ public final class AnnotationInfoImpl implements AnnotationInfo {
 	public Map<String, AnnotationMember> members() {
 		try {
 			final Map<String, AnnotationMember> map = new HashMap<>();
-			for (final Method method : reflectionType.getClass().getDeclaredMethods()) {
+			for (final Method method : reflectionType.annotationType().getDeclaredMethods()) {
 				map.put(method.getName(), new AnnotationMemberImpl(method.invoke(reflectionType)));
 			}
 			return map;
