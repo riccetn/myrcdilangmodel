@@ -1,6 +1,5 @@
 package se.narstrom.myr.langmodel.declarations;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.AccessFlag;
 import java.lang.reflect.AnnotatedType;
 import java.lang.reflect.Constructor;
@@ -10,9 +9,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Predicate;
 
-import jakarta.enterprise.lang.model.AnnotationInfo;
 import jakarta.enterprise.lang.model.declarations.ClassInfo;
 import jakarta.enterprise.lang.model.declarations.FieldInfo;
 import jakarta.enterprise.lang.model.declarations.MethodInfo;
@@ -20,7 +17,6 @@ import jakarta.enterprise.lang.model.declarations.PackageInfo;
 import jakarta.enterprise.lang.model.declarations.RecordComponentInfo;
 import jakarta.enterprise.lang.model.types.Type;
 import jakarta.enterprise.lang.model.types.TypeVariable;
-import se.narstrom.myr.langmodel.annotation.AnnotationInfoImpl;
 import se.narstrom.myr.langmodel.annotation.AnnotationTargetImpl;
 import se.narstrom.myr.langmodel.types.Helper;
 import se.narstrom.myr.langmodel.types.TypeVariableImpl;
@@ -67,20 +63,6 @@ public final class ClassInfoImpl extends AnnotationTargetImpl implements ClassIn
 			infos.add(new FieldInfoImpl(field));
 
 		return Collections.unmodifiableCollection(infos);
-	}
-
-	@Override
-	public boolean hasAnnotation(final Class<? extends Annotation> annotationType) {
-		return reflectionInstance.isAnnotationPresent(annotationType);
-	}
-
-	@Override
-	public boolean hasAnnotation(final Predicate<AnnotationInfo> predicate) {
-		for (final Annotation annotation : reflectionInstance.getDeclaredAnnotations()) {
-			if (predicate.test(new AnnotationInfoImpl(annotation)))
-				return true;
-		}
-		return false;
 	}
 
 	@Override
